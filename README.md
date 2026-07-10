@@ -100,27 +100,3 @@ for batch scoring via `run/pred_mced_v51.py`.
 Model checkpoints live under `model_repository/mced_stacking_resnet_and_single_task_cnn_v51/`.
 This folder is **not tracked by git** — only its structure (`.gitkeep`) is. Do not force-add or
 push the checkpoint files (`*.pkl`, `*.pt`, `*.keras`) to any remote repository.
-
----
-
-## Verified
-
-This handover was smoke-tested end to end (config load → all 6 checkpoints load → embeddings
-→ stacking classifier → final probability) using synthetic feature CSVs, since real patient/
-commercial samples are intentionally not shipped in this repo. Confirmed working:
-
-- `config/mced_stacking_resnet_and_single_task_cnn_v51.yaml` loads and resolves all 6 checkpoint
-  paths under `model_repository/`.
-- The stacking model (`mced_stacking_single_task_cnn_and_resnet_v51.pkl`), the torch checkpoint
-  (`resnet_fnuc_flen.pt`), and all 5 `.keras` checkpoints load and run a forward pass.
-- `BinaryStacking.__call__` runs the full pipeline (feature loading → embedding → stacking
-  prediction) without errors.
-- `scikit-learn==1.6.1` is pinned in `requirements.txt` because the `.pkl` was serialized with
-  that version; other versions raise `InconsistentVersionWarning` (usually harmless, but pin it
-  to avoid future breakage).
-- `config/motif/*.csv` (generic k-mer ordering tables) are required by `src/data/utils.py` for
-  the 3-mer downgrade path (`singletask_cnn_em_flen_3mer`) — make sure this folder stays alongside
-  the config/model.
-
-Not verified: prediction correctness/accuracy — that requires real sample feature data, which is
-out of scope for this code handover.
