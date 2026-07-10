@@ -1,0 +1,68 @@
+stack_model_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/mced_stacking_single_task_cnn_and_resnet_v51.pkl
+
+ckpts:
+  resnet_fnuc_flen:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/resnet_fnuc_flen.pt
+    feature_type: fNUC-FLEN
+    which_mer: 4
+    num_bins: 120
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4
+
+  singletask_cnn_em_flen_4mer:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/singletask_cnn_em_flen_4mer.keras
+    feature_type: EM-FLEN
+    which_mer: 4
+    num_bins: 60
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4
+
+  singletask_cnn_em_flen_3mer:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/singletask_cnn_em_flen_3mer.keras
+    feature_type: EM-FLEN
+    which_mer: 3
+    num_bins: 60
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4
+
+  singletask_cnn_fnuc_flen:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/singletask_cnn_fnuc_flen.keras
+    feature_type: fNUC-FLEN
+    which_mer: 4
+    num_bins: 120
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4
+
+  singletask_cnn_rnuc_flen:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/singletask_cnn_rnuc_flen.keras
+    feature_type: rNUC-FLEN
+    which_mer: 4
+    num_bins: 120
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4
+
+  singletask_cnn_em_fnuc:
+    ckpt_path: model_repository/mced_stacking_resnet_and_single_task_cnn_v51/singletask_cnn_em_fnuc.keras
+    feature_type: EM-fNUC
+    which_mer: 4
+    num_bins: 120
+    flen_range:
+      - 70
+      - 281
+      - 1
+    feature_increasing_factor: 1e4

@@ -1,0 +1,7 @@
+pandas
+scikit-learn==1.6.1
+hydra-core
+pydantic
+openpyxl
+tqdm
+onnxruntime-gpu

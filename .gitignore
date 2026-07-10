@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDE / tooling
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints
+
+# Model checkpoints: keep the folder structure, never commit the weights.
+model_repository/**
+!model_repository/
+!model_repository/**/
+!model_repository/**/.gitkeep
+
+# Local run artifacts
+/outputs/

@@ -1,0 +1,13 @@
+services:
+  nonbs-stacking:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: nonbs-stacking
+    restart: unless-stopped
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./model_repository:/module/model_repository
+      - ./run:/module/run
